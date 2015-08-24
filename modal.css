@@ -1,0 +1,5 @@
+	body{ overflow: auto; }
+	.form{ padding-top: 1em;}
+	.hide{ display:none;}
+	[data-abide] .error small.error, [data-abide] span.error, [data-abide] small.error { margin-top: 0rem}
+	#submit{ margin: 1em 0em 1em 0em;}

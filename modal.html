@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+	<head itemscope itemtype="http://schema.org/WebSite">
+		<meta itemprop="name" content="Software Advice">
+		<title></title>		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" >
+		<meta charset="UTF-8">
+		<meta name="robots" content="noindex, nofollow" >
+		<!-- <link rel="icon" href="/favicon.ico" > -->
+		<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css" > -->
+		<link rel="stylesheet" type="text/css" href="http://www.softwareadvice.com/css/groups/sa_lightbox_iframe_f5.css?v=5.2" >
+		<link rel="stylesheet" type="text/css" href="modal.css" >
+				
+		<!--[if lt IE 9]> 
+				<script src="http://www.softwareadvice.com/js/foundation5/vendor/jquery1.8.3/jquery.min.js?v=4" type="text/javascript"></script>
+				<script src="http://www.softwareadvice.com/js/foundation5/vendor/html5shiv.js?v=1.4"></script>
+				<script src="http://www.softwareadvice.com/js/foundation5/vendor/nwmatcher-1.2.5-min.js?v=1.4"></script>
+				<script src="http://www.softwareadvice.com/js/foundation5/vendor/selectivizr-1.0.3b.js?v=1.4"></script>
+				<script src="http://www.softwareadvice.com/js/foundation5/foundation/foundation.js?v=latest-0.1"></script>	
+		<![endif]--> 
+		<!--[if gte IE 9]><!-->
+				<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+				<script src="http://www.softwareadvice.com/js/foundation5/foundation/foundation.sa.min.js?v=latest-0.1"></script>		
+		<!--<![endif]-->
+		<script language="javascript" type="text/javascript" src="http://www.softwareadvice.com/js/foundation5/vendor/custom.modernizr.js?v=1.4"></script>
+		<script language="javascript" type="text/javascript" src="js.cookie.js"></script>
+		<script language="javascript" type="text/javascript" src="abTest.js"></script>
+
+	</head>
+	<body>
+		<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog"></div>
+
+		<div>
+										<!-- <button id="submit" type="submit" class="submit button small radius secondary text-center no-margin">Submit</button> -->
+
+			<button href="form.html" data-reveal-id="myModal" data-reveal-ajax="true" class="submit button small radius secondary text-center no-margin">Get A Quote</button>
+		</div>
+
+		<div class="shim-down--050em">
+			<button  id="resetCookie" class="submit button small radius secondary text-center no-margin">Set Cookie To New Random Value</button>
+		</div>
+		
+		<link href="http://www.softwareadvice.com/css/foundation5/font-awesome/font-awesome.css" type="text/css" rel="stylesheet">
+		<script src="http://www.softwareadvice.com/js/groups/foundation_5_all.js?v=latest-0.2" type="text/javascript"></script>
+		<script language="javascript" type="text/javascript">
+			$(document).foundation();
+
+			var ctaTest = new abTest(Cookies);
+			ctaTest.setTarget('abTestTarget01');
+			ctaTest.setOptions(['a','b']);
+			selectedItem = ctaTest.getSelectedItem();
+			if(!selectedItem){
+				ctaTest.setRandomOption();
+				ctaTest.saveCookie();
+			}
+
+			(function($, window, document) {
+
+				$(function() {
+					var initHandlers = function(){
+						$('#resetCookie').on('click', function(){
+							ctaTest.setRandomOption();
+						});
+					}
+
+					var init = function(){
+						//Assign event handlers
+						initHandlers();
+					}
+
+					init();
+
+			});
+
+			}(window.jQuery, window, document));
+
+  	
+		</script>
+
+	</body>
+</html>
